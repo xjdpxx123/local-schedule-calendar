@@ -16,6 +16,16 @@ A lightweight, offline-first local schedule & task manager — **no build**, **n
 
 ---
 
+## Screenshots｜界面预览
+
+### Chinese UI｜中文界面
+![Chinese UI](./InterfaceView/Chinese_view.png)
+
+### English UI｜英文界面
+![English UI](./InterfaceView/English_view.png)
+
+---
+
 ## How to Use｜使用说明
 
 - 中文：[`How2Use.md`](./Schedule-Calendar/How2Use_ZN.md)  

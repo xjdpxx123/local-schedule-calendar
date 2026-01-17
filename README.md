@@ -1,7 +1,7 @@
 # Local Schedule-Calendar（本地日程日历）
 
-A lightweight, offline-first local schedule & task manager — **no build**, **no server**, **zero dependency** (HTML/CSS/JS).  
-一个轻量、离线优先的本地日程与任务管理工具——**无需构建**、**无需服务器**、**零依赖**（纯 HTML/CSS/JS）。
+A lightweight, offline-first local schedule & task manager — no build, no server, zero dependency (HTML/CSS/JS). **Supports bilingual UI (ZH/EN).**  
+一个轻量、离线优先的本地日程与任务管理工具——无需构建、无需服务器、零依赖（纯 HTML/CSS/JS）。**支持中英文双语界面。**
 
 ---
 

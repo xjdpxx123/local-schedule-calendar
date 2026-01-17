@@ -18,8 +18,8 @@ A lightweight, offline-first local schedule & task manager — **no build**, **n
 
 ## How to Use｜使用说明
 
-- 中文：[`How2Use.md`](./How2Use.md)  
-- English: [`How2Use_EN.md`](./How2Use_EN.md)
+- 中文：[`How2Use.md`](./local-schedule-calendar/How2Use.md)  
+- English: [`How2Use_EN.md`](./local-schedule-calendar/How2Use_EN.md)
 
 ---
 

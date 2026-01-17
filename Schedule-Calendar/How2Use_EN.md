@@ -151,8 +151,9 @@ This version uses `localStorage` as the default persistence mechanism. The follo
 
 ## 9. Disclaimer
 
-This project is provided “AS IS” without warranty of any kind, express or implied, including but not limited to fitness for a particular purpose, reliability, error-free operation, or uninterrupted availability.  
-To the maximum extent permitted by law, the author shall not be liable for any damages arising from the use of, or inability to use, this project, including but not limited to data loss, business interruption, loss of profits, or other indirect/incidental damages.
+This project is provided “AS IS” without warranty of any kind, express or implied, including but not limited to fitness for a particular purpose, reliability, error-free operation, or uninterrupted availability.
+
+In any circumstances, the author shall not be liable for any damages arising from the use of, or inability to use, this project, including but not limited to data loss, business interruption, loss of profits, or other indirect/incidental damages.
 
 ---
 

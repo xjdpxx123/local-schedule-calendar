@@ -3,6 +3,9 @@
 A lightweight, offline-first local schedule & task manager — no build, no server, zero dependency (HTML/CSS/JS). **Supports bilingual UI (ZH/EN).**  
 一个轻量、离线优先的本地日程与任务管理工具——无需构建、无需服务器、零依赖（纯 HTML/CSS/JS）。**支持中英文双语界面。**
 
+> **Project directory note｜目录说明**: The main application files are located in the `Schedule-Calendar/` folder (open `Schedule-Calendar/index.html` to start).  
+> **目录说明**：核心应用文件位于 `Schedule-Calendar/` 文件夹内（入口为 `Schedule-Calendar/index.html`）。
+
 ---
 
 ## Highlights｜亮点功能

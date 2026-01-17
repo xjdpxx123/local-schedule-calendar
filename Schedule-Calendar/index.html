@@ -1,0 +1,237 @@
+<!--
+  本地日历 - 零依赖本地单页应用
+  作者：xjdpxx123
+  GitHub：github.com/xjdpxx123
+-->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>本地日历｜零依赖本地单页</title>
+
+  <!-- 简易 favicon -->
+  <link rel="icon" href="calendar.ico" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="app app--top">
+      <div class="toprow">
+        <div class="leftControls">
+          <div class="pill">
+            <span class="kbd" id="yearBadge">年</span>
+            <input id="yearInput" type="text" inputmode="numeric" aria-label="Year" data-help-key="helpYearInput" />
+            <select id="monthSelect" aria-label="Month" data-help-key="helpMonthSelect"></select>
+          </div>
+
+          <div class="pill searchWrap">
+            <span class="kbd" id="searchBadge">搜索</span>
+            <input id="searchInput" type="text" placeholder="关键词：倒计时标题 / 任务内容" data-help-key="helpSearchInput" />
+            <div id="searchResults" class="searchResults"></div>
+          </div>
+        </div>
+
+        <div class="rightControls">
+          <div class="seg" title="M/W/D" data-help-key="helpViewSwitch">
+            <button id="viewMonth" class="active" data-help-key="helpViewMonth">月</button>
+            <button id="viewWeek" data-help-key="helpViewWeek">周</button>
+            <button id="viewToday" data-help-key="helpViewToday">今日</button>
+          </div>
+
+          <button id="btnTodayJump" class="btn ghost" title="T" data-help-key="helpTodayJump">今日</button>
+
+          <button id="btnSettings" class="iconBtn" title="设置" aria-label="Settings" data-help-key="helpSettings">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.1 7.1 0 0 0-1.63-.94l-.36-2.54A.5.5 0 0 0 13.9 1h-3.8a.5.5 0 0 0-.49.42l-.36 2.54c-.58.22-1.12.52-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.71 7.48a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94L2.83 14.52a.5.5 0 0 0-.12.64l1.92 3.32c.13.23.4.32.64.22l2.39-.96c.5.41 1.05.73 1.63.94l.36 2.54c.04.24.25.42.49.42h3.8c.24 0 .45-.18.49-.42l.36-2.54c.58-.22 1.12-.52 1.63-.94l2.39.96c.24.1.51.01.64-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z"/>
+            </svg>
+          </button>
+
+          <button id="themeBtn" class="btn" title="Theme" data-help-key="helpTheme">主题：系统</button>
+
+          <div class="toggle" data-help-key="helpHideDone">
+            <span class="toggleLabel" id="labelHideDone">隐藏已完成</span>
+            <div id="hideDoneSwitch" class="switch" data-on="false" role="switch" aria-checked="false" tabindex="0" data-help-key="helpHideDoneSwitch">
+              <div class="knob"></div>
+            </div>
+          </div>
+
+          <div class="toggle" data-help-key="helpProtectDel">
+            <span class="toggleLabel" id="labelProtectDel">防删</span>
+            <div id="protectDelSwitch" class="switch" data-on="false" role="switch" aria-checked="false" tabindex="0" data-help-key="helpProtectDelSwitch">
+              <div class="knob"></div>
+            </div>
+          </div>
+
+          <div class="toggle" data-help-key="helpProtectAdd">
+            <span class="toggleLabel" id="labelProtectAdd">防增</span>
+            <div id="protectAddSwitch" class="switch" data-on="false" role="switch" aria-checked="false" tabindex="0" data-help-key="helpProtectAddSwitch">
+              <div class="knob"></div>
+            </div>
+          </div>
+
+          <button id="btnBackups" class="btn primary" title="Backups" data-help-key="helpBackups">备份</button>
+          <button id="btnFactoryReset" class="btn danger" title="Factory reset" data-help-key="helpFactoryReset">出厂设置</button>
+
+          <a class="iconBtn" id="githubLink" href="https://github.com/xjdpxx123" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" data-help-key="helpGithub">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="countdownBar">
+        <div class="cdHeader">
+          <div class="title" id="cdTopTitle">最近 3 条倒计时</div>
+          <div class="row">
+            <button id="btnAllCountdowns" class="btn primary" data-help-key="helpAllCountdowns">全部</button>
+          </div>
+        </div>
+        <div class="cdList" id="cdTopList"></div>
+      </div>
+
+      <section class="lanes">
+        <div class="lanesTop">
+          <div class="lanesTitle" id="lanesTitle">代办事项栏</div>
+          <div class="row">
+            <div class="pill">
+              <span class="kbd" id="scopeBadge">范围</span>
+              <select id="laneScope" data-help-key="helpLaneScope"></select>
+            </div>
+            <button id="btnManageScopes" class="btn" data-help-key="helpManageScopes">管理范围</button>
+            <button id="btnAddLane" class="btn primary" data-help-key="helpAddLane">新增代办栏</button>
+          </div>
+        </div>
+
+        <div class="laneTabs" id="laneTabs"></div>
+        <div class="laneBody" id="laneBody"></div>
+      </section>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="panel">
+      <div class="panelHeader">
+        <h2 id="panelTitle">月视图</h2>
+      </div>
+
+      <div class="gridWrap" id="monthView">
+        <div class="dow">
+          <div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div><div>日</div>
+        </div>
+        <div class="monthGrid" id="monthGrid"></div>
+      </div>
+
+      <div class="weekWrap" id="weekView" style="display:none;">
+        <div class="weekGrid" id="weekGrid"></div>
+      </div>
+
+      <div class="todayWrap" id="todayView" style="display:none;">
+        <div class="hero">
+          <p class="h1" id="todayH1">今日</p>
+          <p class="h2" id="todayH2"></p>
+          <div class="heroGrid">
+            <div class="section">
+              <div class="secHead">
+                <div class="h" id="todayCdTitle">近期倒计时</div>
+                <div class="field field--mini" data-help-key="helpTodayWithinDays">
+                  <span class="kbd" id="todayCdWithinPrefix">距离今日不到</span>
+                  <input id="todayCdWithinDays" type="text" inputmode="numeric" value="10" aria-label="Days" data-help-key="helpTodayWithinDaysInput" />
+                  <span class="kbd" id="todayCdWithinSuffix">天</span>
+                </div>
+              </div>
+              <div class="list" id="todayCountdownList"></div>
+            </div>
+            <div class="section">
+              <div class="secHead">
+                <div class="h" id="todayTaskTitle">今日计划</div>
+                <button id="btnOpenTodayDrawer" class="btn primary" data-help-key="helpTodayEdit">编辑</button>
+              </div>
+              <div id="todayTasksPreview" class="mutedSmall"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span id="footerNote">数据仅保存在本地浏览器（localStorage）</span>
+    <a href="https://github.com/xjdpxx123" target="_blank" rel="noopener noreferrer">github.com/xjdpxx123</a>
+  </footer>
+
+  <!-- 抽屉 -->
+  <div id="drawerMask" class="drawerMask"></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawerHead">
+      <div class="drawerTitle">
+        <div class="t1" id="drawerDateTitle">日期</div>
+        <div class="t2" id="drawerDateMeta"></div>
+      </div>
+      <button id="btnCloseDrawer" class="btn" data-help-key="helpDrawerClose"><span id="drawerCloseBtn">关闭</span></button>
+    </div>
+    <div class="drawerBody">
+      <div class="section">
+        <div class="secHead">
+          <div>
+            <div class="h" id="drawerCdTitle">倒计时</div>
+          </div>
+          <button id="btnClearCountdowns" class="btn danger" data-help-key="helpClearCountdowns">清空</button>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <span class="kbd" id="cdTitleBadge">标题</span>
+            <input id="cdTitle" type="text" placeholder="例如：考试 / 交稿" data-help-key="helpCountdownTitle" />
+          </div>
+          <div class="field field--date">
+            <span class="kbd" id="cdTargetBadge">目标</span>
+            <input id="cdTarget" type="date" data-help-key="helpCountdownTarget" />
+          </div>
+          <button id="btnAddCountdown" class="btn primary" data-help-key="helpAddCountdown">添加</button>
+        </div>
+
+        <div class="list" id="countdownList"></div>
+      </div>
+
+      <div class="section">
+        <div class="secHead">
+          <div>
+            <div class="h" id="drawerTaskTitle">任务</div>
+            <div class="s" id="drawerTaskHint">Enter 新增同级，Tab/Shift+Tab 调整层级</div>
+          </div>
+          <div class="row">
+            <button id="btnAddRootTask" class="btn primary" data-help-key="helpAddRootTask">新增</button>
+            <button id="btnClearTasks" class="btn danger" data-help-key="helpClearTasks">清空</button>
+          </div>
+        </div>
+        <div id="taskTree" class="tree"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 弹窗 -->
+  <div id="modalMask" class="modalMask"></div>
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <div class="modalHead">
+      <div>
+        <p class="mh1" id="modalTitle">提示</p>
+        <p class="mh2" id="modalDesc"></p>
+      </div>
+      <button id="btnModalClose" class="btn">关闭</button>
+    </div>
+    <div class="modalBody" id="modalBody"></div>
+    <div class="modalFoot" id="modalFoot"></div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- 新手提示气泡（聚焦/悬停时出现） -->
+  <div id="hint" class="hint" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

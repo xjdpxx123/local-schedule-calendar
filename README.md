@@ -16,15 +16,6 @@ A lightweight, offline-first local schedule & task manager — **no build**, **n
 
 ---
 
-## Online Demo｜在线预览（GitHub Pages）
-
-- App entry（应用入口）：`<YOUR_PAGES_URL>/Schedule-Calendar/`
-
-> Example (after enabling Pages):  
-> `https://<username>.github.io/<repo>/Schedule-Calendar/`
-
----
-
 ## How to Use｜使用说明
 
 - 中文：[`How2Use.md`](./How2Use.md)  

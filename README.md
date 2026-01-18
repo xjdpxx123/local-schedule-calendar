@@ -31,7 +31,7 @@ A lightweight, offline-first local schedule & task manager — no build, no serv
 
 ## How to Use｜使用说明
 
-- 中文：[`How2Use.md`](./Schedule-Calendar/How2Use_ZH.md)  
+- 中文：[`How2Use_ZH.md`](./Schedule-Calendar/How2Use_ZH.md)  
 - English: [`How2Use_EN.md`](./Schedule-Calendar/How2Use_EN.md)
 
 ---
